@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Fetch User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        #input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        #parent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        h1, h4, div {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input">
+    <button onclick="getGitHubUser()">Fetch Github user data</button>
+    <div id="parent"></div>
+    
+    <script>
+        function getGitHubUser(){
+            let username = document.getElementById("input").value
+            const url = `https://api.github.com/users/${username}`;
+
+        fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(userData => {
+            console.log(userData)
+            const parentEle = document.getElementById("parent");
+                    parentEle.innerHTML = `<img src="${userData.avatar_url}" />
+                        <h2>Name:${userData.name}</h2>
+                        <div>Public Repos:${userData.public_repos}</div>
+                        <h4>GitHub: <a href="${userData.html_url}" target="_blank">${userData.login}</a></h4>
+                        `
+                               
+                })
+        .catch(error => {
+            console.log(error);
+        });
+        }
+    </script>
+</body>
+</html>

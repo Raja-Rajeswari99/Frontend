@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom CSS Variables</title>
+    <style>
+        /* Define CSS variables */
+        :root {
+            --main-color: lightblue;
+        }
+
+        /* Apply variables to elements */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header, main {
+            background-color: var(--main-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        main {
+            font-size: 18px;
+        }
+
+        /* Responsive Design: Change color on smaller screens */
+        @media (max-width: 768px) {
+            :root {
+                --main-color: lightcoral;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>Custom CSS Variables</header>
+    <main>
+        This webpage uses CSS variables for colors. Resize the window to see the background color change!
+    </main>
+
+</body>
+</html>

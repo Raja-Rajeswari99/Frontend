@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Title & Description</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 4rem; /* Default size for large screens */
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Medium screens (600px - 900px) */
+        @media (max-width: 900px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* Small screens (below 600px) */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Our Website</h1>
+    <p>This is a simple webpage with a responsive title and description. Resize your browser to see the font size change.</p>
+
+</body>
+</html>

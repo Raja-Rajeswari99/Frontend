@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const promise=new promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("fgjh")},1000)
+
+    })
+    promise
+    .then((value)=>{
+        console.log(value+"hello")
+        
+    })
+    .catch((error)=>{
+        console.log(error+"hi")
+    })
+
+
+    const mypromise=new promise((resolve,reject)=>{
+        const randomnum=Math.random();
+        if (randomnum>0.4){
+            reslove("number is grater")
+        }
+        else{
+            reject("smaller")
+        }
+    })
+    mypromise
+    .then((value)=>{
+        console.log(value)
+        return "ok"
+    })
+    .then((message)=>{
+        console.log(message)
+        return "this is okay"
+    })
+    .catch((error)=>{
+        console.log(error)
+        return "not ok"
+    })
+    </script>
+   
+</body>
+</html>

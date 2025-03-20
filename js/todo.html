@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dynamically Add and Delete the Lost Items</h1>
+    <input type="text" id="itemInput" placeholder="Enter an item"/>
+    <button id="addButton" onclick="addFunc()">Add Item</button>
+
+    <ul id="itemList"></ul>
+
+    <script>
+        const button = document.getElementById("addButton")
+        const itemInput = document.getElementById("itemInput")
+        const itemList = document.getElementById("itemList")
+
+        function addFunc(){
+            if(itemInput.value !== ""){
+                let li = document.createElement("li")
+                li.textContent = itemInput.value
+                itemList.appendChild(li)
+                let newButton = document.createElement("button")
+                newButton.textContent= "delete"
+                li.appendChild(newButton)
+                newButton.onclick = ()=>{
+                    li.remove();
+
+                
+                }
+           
+            }
+            itemInput.value=""
+        }
+
+        
+    </script>
+</body>
+</html>
